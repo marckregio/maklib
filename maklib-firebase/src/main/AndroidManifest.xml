@@ -33,7 +33,7 @@
         </service>
 
 
-        <activity android:name="com.marckregio.firebase.FirebaseDatabaseActivity">
+        <activity android:name="com.marckregio.firebase.FirebaseStorageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
