@@ -1,0 +1,2 @@
+include ':makunatlib-main', ':maklib-firebase', ':maklib-ui'
+

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MakunatLib</string>
+    <string name="ua_code">UA-57136182-3</string>
+
+    <string name="facebook_app_id">153345141877064</string>
+
+    <string name="broadcast_refresh">com.marckregio.makunatlib.broadcast.REFRESH</string>
+    <string name="broadcast_download">com.marckregio.makunatlib.broadcast.DOWNLOAD</string>
+    <string name="broadcast_error">com.marckregio.makunatlib.broadcast.ERROR</string>
+    <string name="broadcast_notification">com.marckregio.makunatlib.broadcast.NOTIF</string>
+
+    <string name="INAPP_KEY"></string>
+
+    <item name="item_click_support" type="id" />
+</resources>
