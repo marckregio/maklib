@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.marckregio.firebasemakunat">
+    package="com.marckregio.firebase">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -18,14 +18,14 @@
         android:supportsRtl="true" android:theme="@style/AppTheme">
 
         <service
-            android:name="com.marckregio.firebasemakunat.pushnotification.MakunatFirebaseMessagingService"
+            android:name="com.marckregio.firebase.pushnotification.MakunatFirebaseMessagingService"
             android:enabled="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
         <service
-            android:name="com.marckregio.firebasemakunat.pushnotification.MakunatFirebaseInstanceIDService"
+            android:name="com.marckregio.firebase.pushnotification.MakunatFirebaseInstanceIDService"
             android:enabled="true">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
@@ -33,7 +33,7 @@
         </service>
 
 
-        <activity android:name=".FirebaseDatabaseActivity">
+        <activity android:name="com.marckregio.firebase.FirebaseDatabaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

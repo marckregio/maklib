@@ -1,4 +1,4 @@
-package com.marckregio.firebasemakunat.model;
+package com.marckregio.firebase.model;
 
 /**
  * Created by eCopy on 9/29/2017.
