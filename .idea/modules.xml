@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/maklib.iml" filepath="$PROJECT_DIR$/maklib.iml" />
       <module fileurl="file://$PROJECT_DIR$/maklib-firebase/maklib-firebase.iml" filepath="$PROJECT_DIR$/maklib-firebase/maklib-firebase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maklib-gallery/maklib-gallery.iml" filepath="$PROJECT_DIR$/maklib-gallery/maklib-gallery.iml" />
       <module fileurl="file://$PROJECT_DIR$/maklib-ui/maklib-ui.iml" filepath="$PROJECT_DIR$/maklib-ui/maklib-ui.iml" />
     </modules>
   </component>

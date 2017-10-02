@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <solid android:color="@color/button_selected"/>
+    <corners
+        android:bottomLeftRadius="@dimen/line_border_radius"
+        android:topRightRadius="@dimen/line_border_radius"
+        android:bottomRightRadius="@dimen/line_border_radius"
+        android:topLeftRadius="@dimen/line_border_radius">
+    </corners>
+</shape>

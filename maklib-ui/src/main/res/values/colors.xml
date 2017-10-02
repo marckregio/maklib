@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#999</color>
+    <color name="colorPrimaryDark">#666</color>
+    <color name="colorAccent">#666</color>
+    <color name="white">#fff</color>
+    <color name="progressbar">@color/colorAccent</color>
+    <!--app_colors-->
+    <color name="button_border">#333</color>
+    <color name="button_selected">#333</color>
+    <color name="button_text">#333</color>
+    <color name="button_text_selected">#fff</color>
+    <color name="navigation">#E0E0E0</color>
+    <color name="menu_bg">#e0e0e0</color>
+    <color name="menu_inactive">#666</color>
+    <color name="menu_active">#000</color>
+    <color name="dispatch_bgcolor">#fff</color>
+    <color name="input_text">#000</color>
 </resources>

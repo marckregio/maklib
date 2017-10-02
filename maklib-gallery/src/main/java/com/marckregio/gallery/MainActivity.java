@@ -1,4 +1,4 @@
-package com.marckregio.ui;
+package com.marckregio.gallery;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
