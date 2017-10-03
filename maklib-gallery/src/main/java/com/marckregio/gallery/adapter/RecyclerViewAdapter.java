@@ -1,19 +1,15 @@
 package com.marckregio.gallery.adapter;
 
 import android.app.Activity;
-import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 
-
-import com.bumptech.glide.Glide;
 import com.marckregio.gallery.R;
 import com.marckregio.gallery.model.ImageItem;
+import com.marckregio.gallery.views.ImageItemView;
 
 import java.util.List;
 
@@ -21,12 +17,12 @@ import java.util.List;
  * Created by makregio on 14/07/2017.
  */
 
-public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.ViewHolder>{
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
 
     private List<ImageItem> list;
     private Activity parentActivity;
 
-    public RecycleViewAdapter(Activity parentActivity, List<ImageItem> list){
+    public RecyclerViewAdapter(Activity parentActivity, List<ImageItem> list){
         this.parentActivity = parentActivity;
         this.list = list;
 
@@ -38,25 +34,21 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
         notifyDataSetChanged();
     }
 
+    public List<ImageItem> getList(){
+        return this.list;
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_item, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_list_item, null);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.circleProgress.setVisibility(View.VISIBLE);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Glide.with(parentActivity).load(list.get(position).getPath()).into(holder.image);
-                holder.circleProgress.setVisibility(View.GONE);
-            }
-        }, 2000);
-
+        list.get(position).addObserver(holder.imageItemView);
+        list.get(position).stateChanged();
     }
 
     @Override
@@ -77,14 +69,15 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        ProgressBar circleProgress;
-        ImageView image;
+        ImageItemView imageItemView;
 
         public ViewHolder(View cell){
             super(cell);
 
-            circleProgress = (ProgressBar) cell.findViewById(R.id.circle_progress);
-            image = (ImageView) cell.findViewById(R.id.image);
+            imageItemView = (ImageItemView) cell.findViewById(R.id.image_view);
         }
+
+
     }
+
 }

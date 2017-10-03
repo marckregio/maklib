@@ -16,6 +16,29 @@
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"/>
 
+
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/check"
+            style="@style/TextIconStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="{fa-check-circle}"
+            android:visibility="gone"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:background="@color/mask"/>
+
+        <TextView
+            android:id="@+id/image_name"
+            style="@style/TextLabelStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Filename.jpg"
+            android:textColor="@color/white"
+            android:padding="30dp"
+            android:gravity="bottom"/>
+
         <include layout="@layout/layout_circleprogress"/>
 
     </FrameLayout>

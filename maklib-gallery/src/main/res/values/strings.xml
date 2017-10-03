@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Gallery</string>
+    <item name="item_click_support" type="id" />
 </resources>

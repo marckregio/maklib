@@ -16,4 +16,5 @@
     <color name="menu_active">#000</color>
     <color name="dispatch_bgcolor">#fff</color>
     <color name="input_text">#000</color>
+    <color name="mask">#66666666</color>
 </resources>

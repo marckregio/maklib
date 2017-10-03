@@ -1,4 +1,4 @@
-package com.marckregio.gallery;
+package com.marckregio.gallery.util;
 
 import android.content.Context;
 import android.database.Cursor;
