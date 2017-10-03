@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/card_bg"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingBottom="20dp">
+
+    <RelativeLayout
+        android:id="@+id/contact_form"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true">
+        
+        <TextView
+            android:id="@+id/dialog_title"
+            style="@style/TextLabelStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/app_name"/>
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/exit"
+            style="@style/TextIconStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="{fa-close}"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_alignParentRight="true"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_border"
+            android:background="@color/colorPrimaryDark"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contact_form"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/TextLabelStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Are you sure ?"/>
+        
+    </FrameLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@id/form">
+
+        <Button
+            android:id="@+id/ok"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="OK"
+            android:gravity="center"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -118,11 +118,13 @@ public class ImageItemView extends LinearLayout implements Observer, View.OnClic
         if (view == this){
             if (mainObject.getState() == ImageItem.ImageState.unselected){
                 mainObject.setState(ImageItem.ImageState.selected);
+                ((MainActivity) parentActivity).uncheckOthers(mainObject); //HACK only. Find cleaner way.
             } else {
                 mainObject.setState(ImageItem.ImageState.unselected);
+                ((MainActivity) parentActivity).uncheckOthers(null); //HACK only. Find cleaner way.
             }
             mainObject.stateChanged();
-            ((MainActivity) parentActivity).uncheckOthers(mainObject); //HACK only. Find cleaner way.
+
         }
     }
 

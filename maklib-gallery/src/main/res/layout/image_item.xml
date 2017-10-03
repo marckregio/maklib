@@ -17,7 +17,6 @@
             android:adjustViewBounds="true"/>
 
 
-
         <com.joanzapata.iconify.widget.IconTextView
             android:id="@+id/check"
             style="@style/TextIconStyle"
@@ -34,7 +33,7 @@
             style="@style/TextLabelStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Filename.jpg"
+            android:text=""
             android:textColor="@color/white"
             android:padding="30dp"
             android:gravity="bottom"/>
