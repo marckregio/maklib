@@ -30,7 +30,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     testCompile 'junit:junit:4.12'
-
+    compile 'com.android.support:recyclerview-v7:26.+'
+    compile 'com.android.support:cardview-v7:26.+'
+    compile 'com.android.support:design:26.+'
     //icons
     compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2' // (v4.5)
     //compile 'com.joanzapata.iconify:android-iconify-entypo:2.2.2' // (v3,2015)

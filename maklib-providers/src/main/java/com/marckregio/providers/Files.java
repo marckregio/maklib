@@ -1,25 +1,14 @@
-package com.marckregio.gallery.util;
+package com.marckregio.providers;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
+import android.graphics.Bitmap;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.util.Log;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 /**
  * Created by makregio on 11/04/2017.
@@ -55,7 +44,9 @@ public class Files {
 
     public static List<String> getImageFilePaths(){
         List<String> images = new ArrayList<>();
-        String extension = ".jpg";
+        String JPEG = ".jpg";
+        String JPEG2 = ".jpeg";
+        String PNG = ".png";
         File[] listFile = new File(getMainDir()).listFiles();
         if (listFile != null) {
             for (int i = 0; i < listFile.length; i++) {
@@ -63,7 +54,9 @@ public class Files {
                 if (listFile[i].isDirectory()) {
                     getImageFilePaths();
                 } else {
-                    if (listFile[i].getName().endsWith(extension)) {
+                    if (listFile[i].getName().endsWith(JPEG) ||
+                            listFile[i].getName().endsWith(JPEG2) ||
+                            listFile[i].getName().endsWith(PNG)) {
                         images.add(listFile[i].getAbsolutePath());
                     }
                 }
@@ -71,5 +64,29 @@ public class Files {
         }
 
         return images;
+    }
+
+    public static String saveImage(String img_name, Bitmap bitmap) {
+        if (bitmap == null) {
+            return "";
+        }
+
+        String img_file_name = getMainDir() + img_name + ".png";
+        File img_file = new File(img_file_name);
+        if (img_file.exists()) {
+            img_file.delete();
+        }
+
+        try {
+            FileOutputStream outputStream = new FileOutputStream(img_file);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 90, outputStream);
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return img_file_name;
     }
 }

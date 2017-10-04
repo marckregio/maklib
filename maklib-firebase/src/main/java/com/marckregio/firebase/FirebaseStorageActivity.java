@@ -42,7 +42,7 @@ public class FirebaseStorageActivity extends AppCompatActivity {
         fbStorage = FirebaseStorage.getInstance();
         storageRef = fbStorage.getReference();
 
-        filePicker(); //TEST Method, proper file picker is inside maklib-ui
+        //filePicker(); //TEST Method, proper file picker is inside maklib-ui
     }
 
     public void filePicker(){

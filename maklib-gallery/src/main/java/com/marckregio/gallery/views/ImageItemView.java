@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,7 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.DrawableImageViewTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.marckregio.gallery.MainActivity;
+import com.marckregio.gallery.GalleryActivity;
 import com.marckregio.gallery.R;
 import com.marckregio.gallery.model.ImageItem;
 
@@ -118,10 +117,10 @@ public class ImageItemView extends LinearLayout implements Observer, View.OnClic
         if (view == this){
             if (mainObject.getState() == ImageItem.ImageState.unselected){
                 mainObject.setState(ImageItem.ImageState.selected);
-                ((MainActivity) parentActivity).uncheckOthers(mainObject); //HACK only. Find cleaner way.
+                ((GalleryActivity) parentActivity).uncheckOthers(mainObject); //HACK only. Find cleaner way.
             } else {
                 mainObject.setState(ImageItem.ImageState.unselected);
-                ((MainActivity) parentActivity).uncheckOthers(null); //HACK only. Find cleaner way.
+                ((GalleryActivity) parentActivity).uncheckOthers(null); //HACK only. Find cleaner way.
             }
             mainObject.stateChanged();
 

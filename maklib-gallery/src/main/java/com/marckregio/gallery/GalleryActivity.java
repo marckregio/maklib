@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.marckregio.gallery.adapter.RecyclerViewAdapter;
 import com.marckregio.gallery.model.ImageItem;
-import com.marckregio.gallery.util.Files;
 import com.marckregio.gallery.util.RecyclerViewSettings;
+import com.marckregio.providers.Files;
 import com.marckregio.ui.DialogView;
 import com.marckregio.ui.FontAwesome;
 
@@ -19,7 +19,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class GalleryActivity extends AppCompatActivity implements View.OnClickListener {
 
     //TODO : Setup Reusability
     private RecyclerView recyclerView;
@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<ImageItem> imageItems;
     private TextView delete, done;
     private ImageItem imageItem;
+
+    private static OnImageSelectListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +44,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         delete = (TextView) findViewById(R.id.delete);
         delete.setOnClickListener(this);
+        done = (TextView) findViewById(R.id.done);
+        done.setOnClickListener(this);
+    }
 
+    public static void setOnImageSelectListener(OnImageSelectListener l){
+        listener = l;
     }
 
     private void scanSD(){
-        Files.setOUTPUT("DCIM/Camera");
+        Files.setOUTPUT("SIGNATURES");
         List<String> imagePaths = Files.getImageFilePaths();
         imageItems = new ArrayList<>();
         for (String path : imagePaths){
@@ -88,6 +95,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     })
                     .show();
+        } else if(view == done){
+            if (listener != null) {
+                listener.selectedImage(imageItem.getPath());
+            }
+            Log.v("IMAGES",imageItem.getPath());
+            finish();
         }
     }
 }
