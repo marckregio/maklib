@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.marckregio.gallery.adapter.RecyclerViewAdapter;
 import com.marckregio.gallery.model.ImageItem;
+import com.marckregio.gallery.model.ImageState;
 import com.marckregio.gallery.util.RecyclerViewSettings;
 import com.marckregio.providers.Files;
 import com.marckregio.ui.DialogView;
@@ -53,16 +54,22 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void scanSD(){
-        Files.setOUTPUT("SIGNATURES");
         List<String> imagePaths = Files.getImageFilePaths();
         imageItems = new ArrayList<>();
         for (String path : imagePaths){
             imageItems.add(new ImageItem(path));
         }
 
+        recyclerView.setAdapter(null);
         recyclerViewAdapter = new RecyclerViewAdapter(this, imageItems);
         recyclerView.setAdapter(recyclerViewAdapter);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        scanSD();
     }
 
     public void uncheckOthers(ImageItem selected){
@@ -71,7 +78,7 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
         if (selected != null) {
             for (ImageItem item : imageItems) {
                 if (selected != item) {
-                    item.setState(ImageItem.ImageState.unselected);
+                    item.setState(ImageState.unselected);
                     item.stateChanged();
                 }
             }
@@ -90,7 +97,6 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
                             File file = new File(imageItem.getPath());
                             file.delete();
                             imageItem = null;
-                            recyclerView.setAdapter(null);
                             scanSD();
                         }
                     })

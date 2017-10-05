@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.marckregio.maps.MapsActivity"
+    android:background="@color/colorPrimaryDark">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Location"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentLeft="true"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center">
+
+                    <com.joanzapata.iconify.widget.IconTextView
+                        android:id="@+id/save"
+                        style="@style/TextIconStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="40dp"
+                        android:text="{fa-save}"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment" android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
+
+            <com.joanzapata.iconify.widget.IconButton
+                android:id="@+id/location"
+                style="@style/ButtonStyle"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:textSize="30dp"
+                android:text="{fa-location-arrow}"
+                android:textAllCaps="false"
+                android:layout_alignParentLeft="true"/>
+
+        </RelativeLayout>
+    </FrameLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

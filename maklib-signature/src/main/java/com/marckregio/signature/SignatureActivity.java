@@ -19,6 +19,7 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
     private TextView delete, done;
     private static OnSignatureCreatedListener listener;
 
+    public static String BASE_FOLDER = "SIGNS/";
     public static final String REQUEST_ID = "request_id";
     private String filename = "";
 
@@ -30,14 +31,14 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
-            filename = bundle.getString(REQUEST_ID);
+            filename = "sign." + bundle.getString(REQUEST_ID);
         }
         if (filename.equals("")){
-            filename = System.currentTimeMillis() + "";
+            filename = "sign." + System.currentTimeMillis() + "";
         }
 
         title = (TextView) findViewById(R.id.title);
-        title.setText("Sign for " + filename);
+        title.setText("File: " + filename);
 
 
         inkView = (InkView) findViewById(R.id.ink);
@@ -60,7 +61,6 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void saveImage(Bitmap bitmap){
-        Files.setOUTPUT("SIGNATURES");
         String filePath = Files.saveImage(this.filename, bitmap);
         Log.v("IMAGES", filePath);
         if (listener != null){

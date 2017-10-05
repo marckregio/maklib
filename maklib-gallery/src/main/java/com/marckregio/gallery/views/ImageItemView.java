@@ -18,6 +18,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.marckregio.gallery.GalleryActivity;
 import com.marckregio.gallery.R;
 import com.marckregio.gallery.model.ImageItem;
+import com.marckregio.gallery.model.ImageState;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -35,7 +36,7 @@ public class ImageItemView extends LinearLayout implements Observer, View.OnClic
     private TextView checkIcon;
 
     private ImageItem mainObject;
-    private ImageItem.ImageState defaultState = ImageItem.ImageState.loading;
+    private ImageState defaultState = ImageState.loading;
 
     public ImageItemView(Context context) {
         super(context);
@@ -65,7 +66,7 @@ public class ImageItemView extends LinearLayout implements Observer, View.OnClic
         if (mainObject == null) return;
         if (parentActivity == null) return;
 
-        final ImageItem.ImageState state = mainObject.getState();
+        final ImageState state = mainObject.getState();
 
         parentActivity.runOnUiThread(new Runnable() {
             @Override
@@ -104,7 +105,7 @@ public class ImageItemView extends LinearLayout implements Observer, View.OnClic
                         public void onResourceReady(Drawable resource, @Nullable Transition<? super Drawable> transition) {
                             super.onResourceReady(resource, transition);
                             circleProgress.setVisibility(View.GONE);
-                            mainObject.setState(ImageItem.ImageState.unselected);
+                            mainObject.setState(ImageState.unselected);
                         }
                     });
         }
@@ -115,11 +116,11 @@ public class ImageItemView extends LinearLayout implements Observer, View.OnClic
         if (mainObject == null) return;
 
         if (view == this){
-            if (mainObject.getState() == ImageItem.ImageState.unselected){
-                mainObject.setState(ImageItem.ImageState.selected);
+            if (mainObject.getState() == ImageState.unselected){
+                mainObject.setState(ImageState.selected);
                 ((GalleryActivity) parentActivity).uncheckOthers(mainObject); //HACK only. Find cleaner way.
             } else {
-                mainObject.setState(ImageItem.ImageState.unselected);
+                mainObject.setState(ImageState.unselected);
                 ((GalleryActivity) parentActivity).uncheckOthers(null); //HACK only. Find cleaner way.
             }
             mainObject.stateChanged();

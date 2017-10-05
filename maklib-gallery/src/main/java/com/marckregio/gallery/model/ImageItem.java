@@ -41,9 +41,4 @@ public class ImageItem extends Observable implements Serializable{
         notifyObservers();
     }
 
-    public enum ImageState{
-        selected,
-        unselected,
-        loading
-    }
 }
