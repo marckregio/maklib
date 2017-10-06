@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Providers</string>
+
+    <string name="authority">com.beehive.maklib.provider</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.marckregio.signature;
 
+import android.content.ContentValues;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.marckregio.providers.Files;
+import com.marckregio.providers.database.ContentContract;
 import com.marckregio.ui.FontAwesome;
 import com.simplify.ink.InkView;
 
@@ -67,7 +70,13 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
             listener.onFinished(filePath);
         }
 
-        finish();
+        ContentValues values = new ContentValues();
+        values.put(ContentContract.COLUMN_NAME, filename);
+        values.put(ContentContract.COLUMN_VALUE, filePath);
+
+        Uri insert = getContentResolver().insert(ContentContract.CONTENT_URI, values);
+        Log.v("DATABASE", insert.getPath());
+        //finish();
     }
 
     @Override
