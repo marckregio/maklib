@@ -1,6 +1,7 @@
 package com.marckregio.signature;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -57,16 +58,18 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
         delete.setOnClickListener(this);
         done = (TextView) findViewById(R.id.done);
         done.setOnClickListener(this);
+
+
     }
 
     public static void setSignatureListener(OnSignatureCreatedListener l){
         listener = l;
     }
 
-    private void saveImage(Bitmap bitmap){
+    private void saveImage(Bitmap bitmap) {
         String filePath = Files.saveImage(this.filename, bitmap);
         Log.v("IMAGES", filePath);
-        if (listener != null){
+        if (listener != null) {
             listener.onFinished(filePath);
         }
 
@@ -76,7 +79,18 @@ public class SignatureActivity extends AppCompatActivity implements View.OnClick
 
         Uri insert = getContentResolver().insert(ContentContract.CONTENT_URI, values);
         Log.v("DATABASE", insert.getPath());
-        //finish();
+
+        Cursor cursor = getContentResolver().query(ContentContract.CONTENT_URI, null, null, null, null);
+        if (cursor != null){
+            cursor.moveToFirst();
+            for (int i = 0; i < cursor.getCount(); i++){
+                Log.v("DATABASE", cursor.getString(cursor
+                        .getColumnIndex(ContentContract.COLUMN_NAME)));
+                cursor.moveToNext();
+            }
+
+            cursor.close();
+        }
     }
 
     @Override
