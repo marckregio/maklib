@@ -1,2 +1,2 @@
-include ':maklib-firebase', ':maklib-ui', ':maklib-gallery', ':maklib-providers', ':maklib-signature', ':maklib-maps', ':maklib-login'
+include ':maklib-firebase', ':maklib-ui', ':maklib-gallery', ':maklib-providers', ':maklib-signature', ':maklib-maps', ':maklib-login', ':maklib-animation'
 
