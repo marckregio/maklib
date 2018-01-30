@@ -12,7 +12,7 @@ import com.marckregio.animation.interpolator.Bounce;
 public class MainActivity extends AppCompatActivity implements Animation.AnimationListener {
 
     private ImageView logo;
-    private Animation anim, anim2, anim3;
+    private Animation anim, anim2, anim3, anim4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         anim2.setAnimationListener(this);
         anim3 = AnimationUtils.loadAnimation(this, R.anim.bounce);
         anim3.setInterpolator(new Bounce(0.1, 20));
+        anim3.setAnimationListener(this);
+        anim4 = AnimationUtils.loadAnimation(this, R.anim.wave);
+        anim4.setInterpolator(new Bounce(0.1, 20));
+        anim4.setAnimationListener(this);
         logo.startAnimation(anim);
     }
 
