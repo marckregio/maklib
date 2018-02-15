@@ -31,7 +31,7 @@ public class Player {
     public Player(Context context, int screenX, int screenY){
         this.x = 75;
         this.y = 50;
-        this.speed = 1;
+        this.speed = 20;
         bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.player);
 
         maxY = screenY - bitmap.getHeight();

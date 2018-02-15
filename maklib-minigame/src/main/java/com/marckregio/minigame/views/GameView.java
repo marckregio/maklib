@@ -99,7 +99,7 @@ public class GameView extends SurfaceView implements Runnable {
                 canvas.drawPoint(s.getX(), s.getY(), paint);
             }
 
-            canvas.drawBitmap(
+            /*canvas.drawBitmap(
                     player.getBitmap(),
                     player.getX(),
                     player.getY(),
@@ -119,7 +119,7 @@ public class GameView extends SurfaceView implements Runnable {
                     boom.getX(),
                     boom.getY(),
                     paint
-            );
+            );*/
 
             surfaceHolder.unlockCanvasAndPost(canvas);
         }
